@@ -4,9 +4,39 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <name>NameOf</name>
+    <description>Library to programmatically return the name of fields similar to the C# nameof() operator
+    </description>
+    <url>https://github.com/mobiuscode-de/nameof</url>
     <groupId>de.mobiuscode.nameof</groupId>
     <artifactId>nameof</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
+
+    <organization>
+        <name>MobiusCode GmbH</name>
+        <url>https://mobiuscode.de</url>
+    </organization>
+
+    <developers>
+        <developer>
+            <id>entrusc</id>
+            <name>Florian Frankenberger</name>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>
+                MIT
+            </name>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:https://github.com/mobiuscode-de/nameof.git</connection>
+        <developerConnection>scm:git:git@github.com:mobiuscode-de/nameof.git</developerConnection>
+        <url>https://github.com/mobiuscode-de/nameof</url>
+    </scm>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -47,6 +77,13 @@
                     <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.thoughtworks.xstream</groupId>
+                        <artifactId>xstream</artifactId>
+                        <version>1.4.15</version> <!-- apparently this needs to be exactly this version -->
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -80,7 +117,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
+                <version>3.0.1</version>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
@@ -88,6 +125,10 @@
                         <goals>
                             <goal>sign</goal>
                         </goals>
+                        <configuration>
+                            <keyname>${gpg.keyname}</keyname>
+                            <passphraseServerId>${gpg.keyname}</passphraseServerId>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
