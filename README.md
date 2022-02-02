@@ -1,7 +1,7 @@
 # nameof()
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.mobiuscode.nameof/nameof/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.mobiuscode.nameof/nameof)
 
-Library to programmatically return the name of fields similar to the C# `nameof` operator
+A `Java` library to programmatically return the name of fields similar to the C# `nameof` expression
 
 ## How to use?
 The library is part of the Central Repository and can simply be used like this:
